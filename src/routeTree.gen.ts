@@ -9,38 +9,226 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BookACallRouteImport } from './routes/book-a-call'
+import { Route as AssetsRouteImport } from './routes/assets'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProofsIndexRouteImport } from './routes/proofs/index'
+import { Route as FrameworksIndexRouteImport } from './routes/frameworks/index'
+import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies/index'
+import { Route as AuditsIndexRouteImport } from './routes/audits/index'
+import { Route as ProofsSlugRouteImport } from './routes/proofs/$slug'
+import { Route as FrameworksSlugRouteImport } from './routes/frameworks/$slug'
+import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies/$slug'
+import { Route as AuditsSlugRouteImport } from './routes/audits/$slug'
 
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookACallRoute = BookACallRouteImport.update({
+  id: '/book-a-call',
+  path: '/book-a-call',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AssetsRoute = AssetsRouteImport.update({
+  id: '/assets',
+  path: '/assets',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProofsIndexRoute = ProofsIndexRouteImport.update({
+  id: '/proofs/',
+  path: '/proofs/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FrameworksIndexRoute = FrameworksIndexRouteImport.update({
+  id: '/frameworks/',
+  path: '/frameworks/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
+  id: '/case-studies/',
+  path: '/case-studies/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuditsIndexRoute = AuditsIndexRouteImport.update({
+  id: '/audits/',
+  path: '/audits/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProofsSlugRoute = ProofsSlugRouteImport.update({
+  id: '/proofs/$slug',
+  path: '/proofs/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FrameworksSlugRoute = FrameworksSlugRouteImport.update({
+  id: '/frameworks/$slug',
+  path: '/frameworks/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
+  id: '/case-studies/$slug',
+  path: '/case-studies/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuditsSlugRoute = AuditsSlugRouteImport.update({
+  id: '/audits/$slug',
+  path: '/audits/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/assets': typeof AssetsRoute
+  '/book-a-call': typeof BookACallRoute
+  '/contact': typeof ContactRoute
+  '/audits/$slug': typeof AuditsSlugRoute
+  '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/frameworks/$slug': typeof FrameworksSlugRoute
+  '/proofs/$slug': typeof ProofsSlugRoute
+  '/audits/': typeof AuditsIndexRoute
+  '/case-studies/': typeof CaseStudiesIndexRoute
+  '/frameworks/': typeof FrameworksIndexRoute
+  '/proofs/': typeof ProofsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/assets': typeof AssetsRoute
+  '/book-a-call': typeof BookACallRoute
+  '/contact': typeof ContactRoute
+  '/audits/$slug': typeof AuditsSlugRoute
+  '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/frameworks/$slug': typeof FrameworksSlugRoute
+  '/proofs/$slug': typeof ProofsSlugRoute
+  '/audits': typeof AuditsIndexRoute
+  '/case-studies': typeof CaseStudiesIndexRoute
+  '/frameworks': typeof FrameworksIndexRoute
+  '/proofs': typeof ProofsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/assets': typeof AssetsRoute
+  '/book-a-call': typeof BookACallRoute
+  '/contact': typeof ContactRoute
+  '/audits/$slug': typeof AuditsSlugRoute
+  '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/frameworks/$slug': typeof FrameworksSlugRoute
+  '/proofs/$slug': typeof ProofsSlugRoute
+  '/audits/': typeof AuditsIndexRoute
+  '/case-studies/': typeof CaseStudiesIndexRoute
+  '/frameworks/': typeof FrameworksIndexRoute
+  '/proofs/': typeof ProofsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/assets'
+    | '/book-a-call'
+    | '/contact'
+    | '/audits/$slug'
+    | '/case-studies/$slug'
+    | '/frameworks/$slug'
+    | '/proofs/$slug'
+    | '/audits/'
+    | '/case-studies/'
+    | '/frameworks/'
+    | '/proofs/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/assets'
+    | '/book-a-call'
+    | '/contact'
+    | '/audits/$slug'
+    | '/case-studies/$slug'
+    | '/frameworks/$slug'
+    | '/proofs/$slug'
+    | '/audits'
+    | '/case-studies'
+    | '/frameworks'
+    | '/proofs'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/assets'
+    | '/book-a-call'
+    | '/contact'
+    | '/audits/$slug'
+    | '/case-studies/$slug'
+    | '/frameworks/$slug'
+    | '/proofs/$slug'
+    | '/audits/'
+    | '/case-studies/'
+    | '/frameworks/'
+    | '/proofs/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AssetsRoute: typeof AssetsRoute
+  BookACallRoute: typeof BookACallRoute
+  ContactRoute: typeof ContactRoute
+  AuditsSlugRoute: typeof AuditsSlugRoute
+  CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
+  FrameworksSlugRoute: typeof FrameworksSlugRoute
+  ProofsSlugRoute: typeof ProofsSlugRoute
+  AuditsIndexRoute: typeof AuditsIndexRoute
+  CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
+  FrameworksIndexRoute: typeof FrameworksIndexRoute
+  ProofsIndexRoute: typeof ProofsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book-a-call': {
+      id: '/book-a-call'
+      path: '/book-a-call'
+      fullPath: '/book-a-call'
+      preLoaderRoute: typeof BookACallRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/assets': {
+      id: '/assets'
+      path: '/assets'
+      fullPath: '/assets'
+      preLoaderRoute: typeof AssetsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +236,80 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/proofs/': {
+      id: '/proofs/'
+      path: '/proofs'
+      fullPath: '/proofs/'
+      preLoaderRoute: typeof ProofsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/frameworks/': {
+      id: '/frameworks/'
+      path: '/frameworks'
+      fullPath: '/frameworks/'
+      preLoaderRoute: typeof FrameworksIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies/': {
+      id: '/case-studies/'
+      path: '/case-studies'
+      fullPath: '/case-studies/'
+      preLoaderRoute: typeof CaseStudiesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/audits/': {
+      id: '/audits/'
+      path: '/audits'
+      fullPath: '/audits/'
+      preLoaderRoute: typeof AuditsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/proofs/$slug': {
+      id: '/proofs/$slug'
+      path: '/proofs/$slug'
+      fullPath: '/proofs/$slug'
+      preLoaderRoute: typeof ProofsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/frameworks/$slug': {
+      id: '/frameworks/$slug'
+      path: '/frameworks/$slug'
+      fullPath: '/frameworks/$slug'
+      preLoaderRoute: typeof FrameworksSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies/$slug': {
+      id: '/case-studies/$slug'
+      path: '/case-studies/$slug'
+      fullPath: '/case-studies/$slug'
+      preLoaderRoute: typeof CaseStudiesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/audits/$slug': {
+      id: '/audits/$slug'
+      path: '/audits/$slug'
+      fullPath: '/audits/$slug'
+      preLoaderRoute: typeof AuditsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AssetsRoute: AssetsRoute,
+  BookACallRoute: BookACallRoute,
+  ContactRoute: ContactRoute,
+  AuditsSlugRoute: AuditsSlugRoute,
+  CaseStudiesSlugRoute: CaseStudiesSlugRoute,
+  FrameworksSlugRoute: FrameworksSlugRoute,
+  ProofsSlugRoute: ProofsSlugRoute,
+  AuditsIndexRoute: AuditsIndexRoute,
+  CaseStudiesIndexRoute: CaseStudiesIndexRoute,
+  FrameworksIndexRoute: FrameworksIndexRoute,
+  ProofsIndexRoute: ProofsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
