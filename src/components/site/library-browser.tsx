@@ -86,72 +86,104 @@ export function LibraryBrowser({ kind, items, categories, futureLabel }: Props) 
         ))}
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {kind === "audit"
-          ? (filtered as Audit[]).map((a) => (
-              <Link key={a.slug} to="/audits/$slug" params={{ slug: a.slug }}>
-                <Card interactive className="flex h-full flex-col gap-4">
-                  <div className="flex items-center justify-between">
-                    <span className="flex size-11 items-center justify-center rounded-xl bg-muted text-foreground">
-                      <Icon name={a.icon} className="size-5" />
-                    </span>
-                    <Tag tone="brand">{a.category}</Tag>
-                  </div>
-                  <h3 className="font-heading text-lg font-semibold">{a.name}</h3>
-                  <ul className="flex flex-col gap-1.5 text-sm text-muted-foreground">
-                    {a.highlights.map((h) => (
-                      <li key={h} className="flex items-center gap-2">
-                        <span className="size-1.5 rounded-full bg-primary" />{h}
-                      </li>
-                    ))}
-                  </ul>
-                  <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-                    View Audit <ArrowRight className="size-4" />
-                  </span>
-                </Card>
-              </Link>
-            ))
-          : null}
+      <AnimatePresence mode="popLayout">
+        <motion.div
+          key={`${active}-${query}`}
+          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+          initial="hidden"
+          animate="show"
+          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.05 } } }}
+        >
+          {kind === "audit"
+            ? (filtered as Audit[]).map((a) => (
+                <motion.div
+                  key={a.slug}
+                  variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0 } }}
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={{ y: -3 }}
+                >
+                  <Link to="/audits/$slug" params={{ slug: a.slug }}>
+                    <Card interactive className="flex h-full flex-col gap-4">
+                      <div className="flex items-center justify-between">
+                        <span className="flex size-11 items-center justify-center rounded-xl bg-muted text-foreground">
+                          <Icon name={a.icon} className="size-5" />
+                        </span>
+                        <Tag tone="brand">{a.category}</Tag>
+                      </div>
+                      <h3 className="font-heading text-lg font-semibold">{a.name}</h3>
+                      <ul className="flex flex-col gap-1.5 text-sm text-muted-foreground">
+                        {a.highlights.map((h) => (
+                          <li key={h} className="flex items-center gap-2">
+                            <span className="size-1.5 rounded-full bg-primary" />{h}
+                          </li>
+                        ))}
+                      </ul>
+                      <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                        View Audit <ArrowRight className="size-4" />
+                      </span>
+                    </Card>
+                  </Link>
+                </motion.div>
+              ))
+            : null}
 
-        {kind === "case"
-          ? (filtered as CaseStudy[]).map((c) => (
-              <Link key={c.slug} to="/case-studies/$slug" params={{ slug: c.slug }}>
-                <Card interactive className="flex h-full flex-col gap-4">
-                  <div className="flex flex-wrap gap-2">
-                    {c.tags.map((t) => (
-                      <Tag key={t} tone={t === "High Impact" ? "danger" : "brand"}>{t}</Tag>
-                    ))}
-                  </div>
-                  <h3 className="font-heading text-lg font-semibold">{c.title}</h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{c.summary}</p>
-                  <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-                    {c.keyFindings} Key Findings <ArrowUpRight className="size-4" />
-                  </span>
-                </Card>
-              </Link>
-            ))
-          : null}
+          {kind === "case"
+            ? (filtered as CaseStudy[]).map((c) => (
+                <motion.div
+                  key={c.slug}
+                  variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0 } }}
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={{ y: -3 }}
+                >
+                  <Link to="/case-studies/$slug" params={{ slug: c.slug }}>
+                    <Card interactive className="flex h-full flex-col gap-4">
+                      <div className="flex flex-wrap gap-2">
+                        {c.tags.map((t) => (
+                          <Tag key={t} tone={t === "High Impact" ? "danger" : "brand"}>{t}</Tag>
+                        ))}
+                      </div>
+                      <h3 className="font-heading text-lg font-semibold">{c.title}</h3>
+                      <p className="text-sm leading-relaxed text-muted-foreground">{c.summary}</p>
+                      <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                        {c.keyFindings} Key Findings <ArrowUpRight className="size-4" />
+                      </span>
+                    </Card>
+                  </Link>
+                </motion.div>
+              ))
+            : null}
 
-        {kind === "proof"
-          ? (filtered as Proof[]).map((p) => (
-              <Link key={p.slug} to="/proofs/$slug" params={{ slug: p.slug }}>
-                <Card interactive className="flex h-full flex-col gap-4">
-                  <span className="font-heading text-4xl leading-none text-primary/40">&ldquo;</span>
-                  <p className="text-sm font-medium leading-relaxed">{p.quote}</p>
-                  <span className="mt-auto text-xs font-semibold uppercase tracking-wider text-primary">{p.category}</span>
-                </Card>
-              </Link>
-            ))
-          : null}
+          {kind === "proof"
+            ? (filtered as Proof[]).map((p) => (
+                <motion.div
+                  key={p.slug}
+                  variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0 } }}
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={{ y: -3 }}
+                >
+                  <Link to="/proofs/$slug" params={{ slug: p.slug }}>
+                    <Card interactive className="flex h-full flex-col gap-4">
+                      <span className="font-heading text-4xl leading-none text-primary/40">&ldquo;</span>
+                      <p className="text-sm font-medium leading-relaxed">{p.quote}</p>
+                      <span className="mt-auto text-xs font-semibold uppercase tracking-wider text-primary">{p.category}</span>
+                    </Card>
+                  </Link>
+                </motion.div>
+              ))
+            : null}
 
-        <Card className="flex h-full flex-col items-center justify-center gap-3 border-dashed text-center">
-          <span className="flex size-11 items-center justify-center rounded-xl border border-dashed border-border text-muted-foreground">
-            <Plus className="size-5" />
-          </span>
-          <h3 className="font-heading font-semibold text-muted-foreground">{futureLabel}</h3>
-          <p className="text-sm text-muted-foreground">More coming soon. Stay tuned.</p>
-        </Card>
-      </div>
+          <motion.div variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0 } }}>
+            <Card className="flex h-full flex-col items-center justify-center gap-3 border-dashed text-center">
+              <span className="flex size-11 items-center justify-center rounded-xl border border-dashed border-border text-muted-foreground">
+                <Plus className="size-5" />
+              </span>
+              <h3 className="font-heading font-semibold text-muted-foreground">{futureLabel}</h3>
+              <p className="text-sm text-muted-foreground">More coming soon. Stay tuned.</p>
+            </Card>
+          </motion.div>
+        </motion.div>
+      </AnimatePresence>
+
 
       {filtered.length === 0 ? (
         <p className="py-8 text-center text-sm text-muted-foreground">No results found. Try a different search or filter.</p>
