@@ -1,9 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
+import { motion } from "motion/react";
 import { Container, Tag } from "@/components/site/primitives";
 import { Icon } from "@/components/icon";
 import { CAPABILITY_BADGES } from "@/lib/data";
 import portrait from "@/assets/hari-portrait.asset.json";
+
+const ease = [0.22, 1, 0.36, 1] as const;
 
 const METRICS = [
   { label: "Growth Impact", value: "+43%", sub: "Potential Increase" },
