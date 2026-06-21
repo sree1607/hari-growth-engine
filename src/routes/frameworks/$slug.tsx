@@ -31,7 +31,7 @@ function List({ items }: { items: string[] }) {
 }
 
 function FrameworkDetail() {
-  const { framework: f } = Route.useLoaderData();
+  const { framework: f } = Route.useLoaderData() as { framework: Framework };
   return (
     <>
       <PageHeader

@@ -19,7 +19,7 @@ export const Route = createFileRoute("/proofs/$slug")({
 });
 
 function ProofDetail() {
-  const { proof: p } = Route.useLoaderData();
+  const { proof: p } = Route.useLoaderData() as { proof: Proof };
 
   const WhyItsTrue = (
     <div className="grid gap-4 lg:grid-cols-3">

@@ -19,7 +19,7 @@ export const Route = createFileRoute("/case-studies/$slug")({
 });
 
 function CaseStudyDetail() {
-  const { cs: c } = Route.useLoaderData();
+  const { cs: c } = Route.useLoaderData() as { cs: CaseStudy };
 
   const Overview = (
     <div className="flex flex-col gap-8">

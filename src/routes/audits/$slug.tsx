@@ -19,7 +19,7 @@ export const Route = createFileRoute("/audits/$slug")({
 });
 
 function AuditDetail() {
-  const { audit: a } = Route.useLoaderData();
+  const { audit: a } = Route.useLoaderData() as { audit: Audit };
   const overviewMetrics = [
     { value: String(a.frictionPoints), label: "Friction Points", sub: "Identified" },
     { value: String(a.activationBlockers), label: "Activation Blockers", sub: "High Impact" },
