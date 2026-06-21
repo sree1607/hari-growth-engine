@@ -4,10 +4,10 @@ import { Container, Card, Tag } from "@/components/site/primitives";
 import { PageHeader } from "@/components/site/page-header";
 import { Tabs } from "@/components/site/tabs";
 import { Icon } from "@/components/icon";
-import { AUDITS, AUDIT_FINDINGS, AUDIT_IMPACT_BLOCKS } from "@/lib/data";
+import { AUDITS, AUDIT_FINDINGS, AUDIT_IMPACT_BLOCKS, type Audit } from "@/lib/data";
 
 export const Route = createFileRoute("/audits/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): { audit: Audit } => {
     const a = AUDITS.find((x) => x.slug === params.slug);
     if (!a) throw notFound();
     return { audit: a };

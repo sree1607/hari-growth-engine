@@ -4,10 +4,10 @@ import { Container, Card, Tag } from "@/components/site/primitives";
 import { PageHeader } from "@/components/site/page-header";
 import { Tabs } from "@/components/site/tabs";
 import { Icon } from "@/components/icon";
-import { PROOFS } from "@/lib/data";
+import { PROOFS, type Proof } from "@/lib/data";
 
 export const Route = createFileRoute("/proofs/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): { proof: Proof } => {
     const p = PROOFS.find((x) => x.slug === params.slug);
     if (!p) throw notFound();
     return { proof: p };

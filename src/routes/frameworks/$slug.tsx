@@ -3,10 +3,10 @@ import { CheckCircle2, ChevronRight } from "lucide-react";
 import { Container, Card, Tag } from "@/components/site/primitives";
 import { PageHeader } from "@/components/site/page-header";
 import { Icon } from "@/components/icon";
-import { FRAMEWORKS } from "@/lib/data";
+import { FRAMEWORKS, type Framework } from "@/lib/data";
 
 export const Route = createFileRoute("/frameworks/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): { framework: Framework } => {
     const f = FRAMEWORKS.find((x) => x.slug === params.slug);
     if (!f) throw notFound();
     return { framework: f };

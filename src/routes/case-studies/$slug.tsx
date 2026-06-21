@@ -4,10 +4,10 @@ import { Container, Card, Tag } from "@/components/site/primitives";
 import { PageHeader } from "@/components/site/page-header";
 import { Tabs } from "@/components/site/tabs";
 import { Icon } from "@/components/icon";
-import { CASE_STUDIES } from "@/lib/data";
+import { CASE_STUDIES, type CaseStudy } from "@/lib/data";
 
 export const Route = createFileRoute("/case-studies/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): { cs: CaseStudy } => {
     const c = CASE_STUDIES.find((x) => x.slug === params.slug);
     if (!c) throw notFound();
     return { cs: c };
