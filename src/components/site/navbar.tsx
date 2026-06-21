@@ -21,7 +21,7 @@ function Logo() {
           <path d="M5 5v14M19 5v14M5 12h14" strokeLinecap="round" />
         </svg>
       </span>
-      HARI
+      <span className="font-heading">HAR<span className="text-primary">i</span></span>
     </Link>
   );
 }

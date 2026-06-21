@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Hero } from "@/components/home/hero";
+import { ShortcutsGrid } from "@/components/home/shortcuts-grid";
 import {
   ProblemsSolve, FeaturedAudits, FrameworkPreview, CaseStudiesPreview, ProofPreview, BottomCTA,
 } from "@/components/home/home-sections";
@@ -18,6 +19,7 @@ function Index() {
   return (
     <>
       <Hero />
+      <ShortcutsGrid />
       <ProblemsSolve />
       <FeaturedAudits />
       <FrameworkPreview />
