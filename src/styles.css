@@ -107,25 +107,25 @@
 /* DARK MODE (default) */
 .dark {
   color-scheme: dark;
-  --background: #07070c;
+  --background: #06060d;
   --foreground: #f5f6fa;
-  --surface: #101019;
+  --surface: #0e0e1a;
   --surface-foreground: #f5f6fa;
-  --card: #101019;
+  --card: #0e0e1a;
   --card-foreground: #f5f6fa;
-  --popover: #14141f;
+  --popover: #12121f;
   --popover-foreground: #f5f6fa;
   --primary: #7c3aed;
   --primary-foreground: #ffffff;
-  --secondary: #1a1a26;
+  --secondary: #181826;
   --secondary-foreground: #f5f6fa;
-  --muted: #16161f;
-  --muted-foreground: #9ca0ae;
-  --accent: #1c1530;
+  --muted: #141422;
+  --muted-foreground: #9a9eb0;
+  --accent: #1d1535;
   --accent-foreground: #c4b5fd;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.07);
   --input: rgba(255, 255, 255, 0.12);
   --ring: #7c3aed;
   --brand: #7c3aed;
@@ -136,13 +136,13 @@
   --warning: #f59e0b;
   --danger: #ef4444;
   --neutral: #6b7280;
-  --sidebar: #101019;
+  --sidebar: #0e0e1a;
   --sidebar-foreground: #f5f6fa;
   --sidebar-primary: #7c3aed;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #1c1530;
+  --sidebar-accent: #1d1535;
   --sidebar-accent-foreground: #c4b5fd;
-  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-border: rgba(255, 255, 255, 0.07);
   --sidebar-ring: #7c3aed;
 }
 
@@ -150,10 +150,20 @@
   * {
     border-color: var(--color-border);
   }
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01", "ss03";
+  }
+  ::selection {
+    background-color: color-mix(in oklab, var(--primary) 35%, transparent);
+    color: var(--foreground);
   }
 }
 
@@ -164,4 +174,18 @@
     transparent 0
   );
   background-size: 28px 28px;
+}
+
+@layer utilities {
+  .text-gradient-brand {
+    background-image: linear-gradient(135deg, var(--primary), var(--blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .shadow-glow {
+    box-shadow:
+      0 1px 0 0 color-mix(in oklab, var(--foreground) 4%, transparent) inset,
+      0 20px 60px -20px color-mix(in oklab, var(--primary) 35%, transparent);
+  }
 }
