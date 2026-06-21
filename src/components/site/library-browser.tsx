@@ -6,8 +6,6 @@ import { Card, Tag } from "@/components/site/primitives";
 import { Icon } from "@/components/icon";
 import { cn } from "@/lib/utils";
 import type { Audit, CaseStudy, Proof } from "@/lib/data";
-import { cn } from "@/lib/utils";
-import type { Audit, CaseStudy, Proof } from "@/lib/data";
 
 type Kind = "audit" | "case" | "proof";
 
