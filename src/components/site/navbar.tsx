@@ -13,6 +13,18 @@ const EXTRA_LINKS = [
 
 const ALL_LINKS = [...NAV_LINKS, ...EXTRA_LINKS];
 
+function LogoText() {
+  return (
+    <span className="font-heading">
+      HAR
+      <span className="relative inline-block text-orange-500">
+        i
+        <span className="absolute -top-[0.35em] left-1/2 block size-[0.35em] -translate-x-1/2 rounded-full bg-yellow-400 shadow-[0_0_6px_2px_rgba(250,204,21,0.85)]" />
+      </span>
+    </span>
+  );
+}
+
 function Logo() {
   return (
     <Link to="/" className="flex items-center gap-2 font-heading text-lg font-bold tracking-tight">
@@ -21,7 +33,7 @@ function Logo() {
           <path d="M5 5v14M19 5v14M5 12h14" strokeLinecap="round" />
         </svg>
       </span>
-      <span className="font-heading">HAR<span className="text-primary">i</span></span>
+      <LogoText />
     </Link>
   );
 }

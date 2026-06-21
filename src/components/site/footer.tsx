@@ -15,7 +15,7 @@ export function Footer() {
       <Container className="flex flex-col gap-8 py-12">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm">
-            <span className="font-heading text-lg font-bold tracking-tight">HAR<span className="text-primary">i</span></span>
+            <span className="font-heading text-lg font-bold tracking-tight">HAR<span className="relative inline-block text-orange-500">i<span className="absolute -top-[0.35em] left-1/2 block size-[0.35em] -translate-x-1/2 rounded-full bg-yellow-400 shadow-[0_0_6px_2px_rgba(250,204,21,0.85)]" /></span></span>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               I find what is holding your product back — deep product, growth, and user
               experience analysis for founders and teams.
