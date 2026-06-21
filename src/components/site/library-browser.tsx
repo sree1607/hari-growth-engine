@@ -1,8 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, Plus, Search } from "lucide-react";
 import { useMemo, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { Card, Tag } from "@/components/site/primitives";
 import { Icon } from "@/components/icon";
+import { cn } from "@/lib/utils";
+import type { Audit, CaseStudy, Proof } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import type { Audit, CaseStudy, Proof } from "@/lib/data";
 
