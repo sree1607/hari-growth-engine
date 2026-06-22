@@ -26,11 +26,11 @@ function ContactPage() {
               <h3 className="font-heading text-lg font-semibold">Reach out</h3>
               <div className="flex items-center gap-3 text-sm">
                 <span className="flex size-9 items-center justify-center rounded-lg bg-primary/15 text-primary"><Mail className="size-4" /></span>
-                <a href="mailto:hello@hari.work" className="font-medium hover:text-primary">hello@hari.work</a>
+                <a href="mailto:thedeepestdrive25@gmail.com" className="font-medium hover:text-primary">thedeepestdrive25@gmail.com</a>
               </div>
               <div className="flex items-center gap-3 text-sm">
                 <span className="flex size-9 items-center justify-center rounded-lg bg-primary/15 text-primary"><MapPin className="size-4" /></span>
-                <span className="text-muted-foreground">Remote · Asia/Kolkata (GMT+5:30)</span>
+                <span className="text-muted-foreground">Based in Hyderabad, Working Worldwide</span>
               </div>
             </Card>
             <Card className="flex flex-col gap-3">
